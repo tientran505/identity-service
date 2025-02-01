@@ -3,6 +3,7 @@ package com.example.identity_service.service;
 import java.util.HashSet;
 import java.util.List;
 
+import com.example.identity_service.entity.Role;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -41,9 +42,10 @@ public class UserService {
         User user = userMapper.toUser(request);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        //        HashSet<String> roles = new HashSet<>();
-        //        roles.add(Role.USER.name());
-        //        user.setRoles(roles);
+        HashSet<Role> roles = new HashSet<>();
+        roleRepository.findById("USER").ifPresent(roles::add);
+
+        user.setRoles(roles);
 
         return userMapper.toUserResponse(userRepository.save(user));
     }
