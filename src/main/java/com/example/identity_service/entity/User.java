@@ -1,6 +1,5 @@
 package com.example.identity_service.entity;
 
-import java.time.LocalDate;
 import java.util.Set;
 
 import jakarta.persistence.*;
@@ -22,9 +21,6 @@ public class User {
 
     String username;
     String password;
-    String firstName;
-    String lastName;
-    LocalDate birthDate;
 
     @ManyToMany
     Set<Role> roles;

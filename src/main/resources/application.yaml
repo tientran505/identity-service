@@ -17,3 +17,7 @@ server:
   port: 8080
   servlet:
     context-path: /identity
+
+app:
+  services:
+    profile-service: http://localhost:8081/profile
