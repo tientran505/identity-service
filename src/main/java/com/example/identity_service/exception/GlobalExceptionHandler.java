@@ -11,7 +11,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.example.identity_service.dto.request.ApiResponse;
+import com.example.identity_service.dto.response.ApiResponse;
 
 import lombok.extern.slf4j.Slf4j;
 
